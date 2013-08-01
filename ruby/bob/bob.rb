@@ -1,14 +1,10 @@
 class Bob
   def hey(message)
-    if message.to_s.match(/^\s*$/)
-      # Any amount of whitespace and nothing else
+    if message.to_s.strip == ''
       'Fine. Be that way!'
-    elsif message.match(/[A-Z]{2,}([^\.\s]+)$/)
-      # Two or more caps in a row, followed by at least 1 character that isn't
-      # a full stop or a space
+    elsif message == message.upcase
       'Woah, chill out!'
-    elsif message.match(/\?$/)
-      # Ending with a question mark
+    elsif message.end_with?('?')
       'Sure.'
     else
       'Whatever.'
